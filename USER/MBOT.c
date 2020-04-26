@@ -32,7 +32,7 @@ int main(void)
 	GPIO_PinRemapConfig(GPIO_Remap_SWJ_JTAGDisable,ENABLE);//禁用JTAG 启用 SWD
 	LED_Init();                     //=====初始化与 LED 连接的硬件接口
 	MY_NVIC_PriorityGroupConfig(2);	//=====设置中断分组
-	MBOT_PWM_Init(7199,0);   //=====初始化PWM 10KHZ，用于驱动电机 如需初始化电调接口 
+	MBOT_PWM_Init(7199,0);          //=====初始化PWM 10KHZ，用于驱动电机 如需初始化电调接口 
 	uart3_init(9600);               //=====串口3初始化
 	Encoder_Init_TIM2();            //=====编码器接口
 	Encoder_Init_TIM4();            //=====初始化编码器2
@@ -42,11 +42,11 @@ int main(void)
 	DMP_Init();                     //=====初始化DMP 
 	PID_Init();                     //=====PID初始化
 	KEY_Init();
-	MBOT_EXTI_Init();        //=====MPU6050 5ms定时中断初始化
-
+	MBOT_EXTI_Init();               //=====MPU6050 5ms定时中断初始化
 
 	while(1)
 	{
+		//蓝牙调试时用，不调试注释
 		//APP_Show();
 		//给树莓派发送速度，角度,这里速度已经乘以1000
 		usartSendSpeed((float)leftSpeedNow,(float)rightSpeedNow,(float)(int)Gyro_Turn);
