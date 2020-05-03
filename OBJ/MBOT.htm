@@ -3,7 +3,7 @@
 <title>Static Call Graph - [..\OBJ\MBOT.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image ..\OBJ\MBOT.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5050106: Last Updated: Mon Apr 27 01:58:50 2020
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5050106: Last Updated: Sun May 03 16:12:59 2020
 <BR><P>
 <H3>Maximum Stack Usage =        288 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -1299,15 +1299,15 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[ae]"></a>TIM_Left_Wheel_Irq</STRONG> (Thumb, 42 bytes, Stack size 8 bytes, encoder.o(.text), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_ClearITPendingBit
+<BR><BR>[Calls]<UL><LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getTIMx_DetaCnt
+<LI><a href="#[b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_ClearITPendingBit
 <LI><a href="#[af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_GetITStatus
-<LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getTIMx_DetaCnt
 </UL>
 
 <P><STRONG><a name="[b2]"></a>TIM_Right_Wheel_Irq</STRONG> (Thumb, 44 bytes, Stack size 8 bytes, encoder.o(.text), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_ClearITPendingBit
+<BR><BR>[Calls]<UL><LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getTIMx_DetaCnt
+<LI><a href="#[b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_ClearITPendingBit
 <LI><a href="#[af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_GetITStatus
-<LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getTIMx_DetaCnt
 </UL>
 
 <P><STRONG><a name="[2c]"></a>TIM4_IRQHandler</STRONG> (Thumb, 24 bytes, Stack size 0 bytes, encoder.o(.text))
@@ -1628,7 +1628,8 @@ Global Symbols
 <P><STRONG><a name="[36]"></a>EXTI15_10_IRQHandler</STRONG> (Thumb, 416 bytes, Stack size 24 bytes, control.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 288<LI>Call Chain = EXTI15_10_IRQHandler &rArr; Get_Angle &rArr; Read_DMP &rArr; dmp_read_fifo &rArr; mpu_read_fifo_stream &rArr; mpu_reset_fifo &rArr; i2cWrite &rArr; IIC_Send_Byte
 </UL>
-<BR>[Calls]<UL><LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Get_battery_volt
+<BR>[Calls]<UL><LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getTIMx_DetaCnt
+<LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Get_battery_volt
 <LI><a href="#[d0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Led_Flash
 <LI><a href="#[60]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2iz
 <LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dmul
@@ -1641,7 +1642,6 @@ Global Symbols
 <LI><a href="#[d3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Xianfu_Pwm
 <LI><a href="#[d4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Turn_Off
 <LI><a href="#[c7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Set_Pwm
-<LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getTIMx_DetaCnt
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f10x_md.o(RESET)
 </UL>

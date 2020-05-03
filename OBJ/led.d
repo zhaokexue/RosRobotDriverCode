@@ -34,12 +34,10 @@
 ..\obj\led.o: ..\SYSTEM\sys\sys.h
 ..\obj\led.o: ..\Mbot_HARDWARE\LED\led.h
 ..\obj\led.o: ..\Mbot_HARDWARE\KEY\key.h
-..\obj\led.o: ..\Mbot_HARDWARE\OLED\oled.h
 ..\obj\led.o: ..\SYSTEM\usart\usart.h
 ..\obj\led.o: C:\Software\MDK5\ARM\ARMCC\Bin\..\include\stdio.h
 ..\obj\led.o: ..\Mbot_HARDWARE\USART3\usart3.h
 ..\obj\led.o: ..\Mbot_HARDWARE\ADC\adc.h
-..\obj\led.o: ..\Mbot_HARDWARE\TIMER\timer.h
 ..\obj\led.o: ..\Mbot_HARDWARE\MOTOR\motor.h
 ..\obj\led.o: ..\Mbot_HARDWARE\ENCODER\encoder.h
 ..\obj\led.o: ..\Mbot_HARDWARE\IIC\ioi2c.h

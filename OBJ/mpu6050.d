@@ -34,12 +34,10 @@
 ..\obj\mpu6050.o: ..\SYSTEM\sys\sys.h
 ..\obj\mpu6050.o: ..\Mbot_HARDWARE\LED\led.h
 ..\obj\mpu6050.o: ..\Mbot_HARDWARE\KEY\key.h
-..\obj\mpu6050.o: ..\Mbot_HARDWARE\OLED\oled.h
 ..\obj\mpu6050.o: ..\SYSTEM\usart\usart.h
 ..\obj\mpu6050.o: C:\Software\MDK5\ARM\ARMCC\Bin\..\include\stdio.h
 ..\obj\mpu6050.o: ..\Mbot_HARDWARE\USART3\usart3.h
 ..\obj\mpu6050.o: ..\Mbot_HARDWARE\ADC\adc.h
-..\obj\mpu6050.o: ..\Mbot_HARDWARE\TIMER\timer.h
 ..\obj\mpu6050.o: ..\Mbot_HARDWARE\MOTOR\motor.h
 ..\obj\mpu6050.o: ..\Mbot_HARDWARE\ENCODER\encoder.h
 ..\obj\mpu6050.o: ..\Mbot_HARDWARE\IIC\ioi2c.h

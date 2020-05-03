@@ -34,12 +34,10 @@
 ..\obj\mbotlinuxusart.o: ..\SYSTEM\sys\sys.h
 ..\obj\mbotlinuxusart.o: ..\Mbot_HARDWARE\LED\led.h
 ..\obj\mbotlinuxusart.o: ..\Mbot_HARDWARE\KEY\key.h
-..\obj\mbotlinuxusart.o: ..\Mbot_HARDWARE\OLED\oled.h
 ..\obj\mbotlinuxusart.o: ..\SYSTEM\usart\usart.h
 ..\obj\mbotlinuxusart.o: C:\Software\MDK5\ARM\ARMCC\Bin\..\include\stdio.h
 ..\obj\mbotlinuxusart.o: ..\Mbot_HARDWARE\USART3\usart3.h
 ..\obj\mbotlinuxusart.o: ..\Mbot_HARDWARE\ADC\adc.h
-..\obj\mbotlinuxusart.o: ..\Mbot_HARDWARE\TIMER\timer.h
 ..\obj\mbotlinuxusart.o: ..\Mbot_HARDWARE\MOTOR\motor.h
 ..\obj\mbotlinuxusart.o: ..\Mbot_HARDWARE\ENCODER\encoder.h
 ..\obj\mbotlinuxusart.o: ..\Mbot_HARDWARE\IIC\ioi2c.h

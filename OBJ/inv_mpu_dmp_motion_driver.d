@@ -33,12 +33,10 @@
 ..\obj\inv_mpu_dmp_motion_driver.o: ..\SYSTEM\sys\sys.h
 ..\obj\inv_mpu_dmp_motion_driver.o: ..\Mbot_HARDWARE\LED\led.h
 ..\obj\inv_mpu_dmp_motion_driver.o: ..\Mbot_HARDWARE\KEY\key.h
-..\obj\inv_mpu_dmp_motion_driver.o: ..\Mbot_HARDWARE\OLED\oled.h
 ..\obj\inv_mpu_dmp_motion_driver.o: ..\SYSTEM\usart\usart.h
 ..\obj\inv_mpu_dmp_motion_driver.o: C:\Software\MDK5\ARM\ARMCC\Bin\..\include\stdio.h
 ..\obj\inv_mpu_dmp_motion_driver.o: ..\Mbot_HARDWARE\USART3\usart3.h
 ..\obj\inv_mpu_dmp_motion_driver.o: ..\Mbot_HARDWARE\ADC\adc.h
-..\obj\inv_mpu_dmp_motion_driver.o: ..\Mbot_HARDWARE\TIMER\timer.h
 ..\obj\inv_mpu_dmp_motion_driver.o: ..\Mbot_HARDWARE\MOTOR\motor.h
 ..\obj\inv_mpu_dmp_motion_driver.o: ..\Mbot_HARDWARE\ENCODER\encoder.h
 ..\obj\inv_mpu_dmp_motion_driver.o: ..\Mbot_HARDWARE\IIC\ioi2c.h
