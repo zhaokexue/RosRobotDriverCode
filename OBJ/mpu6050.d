@@ -1,5 +1,5 @@
-..\obj\mpu6050.o: ..\mbot\MPU6050\MPU6050.c
-..\obj\mpu6050.o: ..\mbot\MPU6050\MPU6050.h
+..\obj\mpu6050.o: ..\Mbot_HARDWARE\MPU6050\MPU6050.c
+..\obj\mpu6050.o: ..\Mbot_HARDWARE\MPU6050\MPU6050.h
 ..\obj\mpu6050.o: ..\SYSTEM\sys\sys.h
 ..\obj\mpu6050.o: ..\USER\stm32f10x.h
 ..\obj\mpu6050.o: ..\Mbot_COER\core_cm3.h
@@ -41,13 +41,13 @@
 ..\obj\mpu6050.o: ..\Mbot_HARDWARE\MOTOR\motor.h
 ..\obj\mpu6050.o: ..\Mbot_HARDWARE\ENCODER\encoder.h
 ..\obj\mpu6050.o: ..\Mbot_HARDWARE\IIC\ioi2c.h
-..\obj\mpu6050.o: ..\mbot\MPU6050\mpu6050.h
+..\obj\mpu6050.o: ..\Mbot_HARDWARE\MPU6050\mpu6050.h
 ..\obj\mpu6050.o: ..\mbot\show\show.h
 ..\obj\mpu6050.o: ..\Mbot_HARDWARE\EXTI\exti.h
-..\obj\mpu6050.o: ..\mbot\DMP\inv_mpu.h
-..\obj\mpu6050.o: ..\mbot\DMP\inv_mpu_dmp_motion_driver.h
-..\obj\mpu6050.o: ..\mbot\DMP\dmpKey.h
-..\obj\mpu6050.o: ..\mbot\DMP\dmpmap.h
+..\obj\mpu6050.o: ..\Mbot_HARDWARE\DMP\inv_mpu.h
+..\obj\mpu6050.o: ..\Mbot_HARDWARE\DMP\inv_mpu_dmp_motion_driver.h
+..\obj\mpu6050.o: ..\Mbot_HARDWARE\DMP\dmpKey.h
+..\obj\mpu6050.o: ..\Mbot_HARDWARE\DMP\dmpmap.h
 ..\obj\mpu6050.o: C:\Software\MDK5\ARM\ARMCC\Bin\..\include\string.h
 ..\obj\mpu6050.o: C:\Software\MDK5\ARM\ARMCC\Bin\..\include\stdlib.h
 ..\obj\mpu6050.o: C:\Software\MDK5\ARM\ARMCC\Bin\..\include\math.h

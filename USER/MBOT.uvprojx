@@ -369,7 +369,7 @@
               <MiscControls></MiscControls>
               <Define>STM32F10X_ HD,USE_STDPERIPH_DRIVER</Define>
               <Undefine></Undefine>
-              <IncludePath>..\USER;..\STM32F10x_FWLib\inc;..\SYSTEM;..\SYSTEM\delay;..\SYSTEM\sys;..\SYSTEM\usart;..\Mbot_COER;..\Mbot_HARDWARE;..\mbot\CONTROL;..\mbot\DMP;..\mbot\filter;..\mbot\MPU6050;..\mbot\show;..\mbot\usart;..\Mbot_HARDWARE\ADC;..\Mbot_HARDWARE\DMP;..\Mbot_HARDWARE\ENCODER;..\Mbot_HARDWARE\EXTI;..\Mbot_HARDWARE\IIC;..\Mbot_HARDWARE\KEY;..\Mbot_HARDWARE\LED;..\Mbot_HARDWARE\MPU6050;..\Mbot_HARDWARE\USART3;..\Mbot_HARDWARE\MOTOR;..\mbot\PID;..\Mbot_HARDWARE\OLED;..\Mbot_HARDWARE\TIMER</IncludePath>
+              <IncludePath>..\USER;..\STM32F10x_FWLib\inc;..\SYSTEM;..\SYSTEM\delay;..\SYSTEM\sys;..\SYSTEM\usart;..\Mbot_COER;..\Mbot_HARDWARE;..\mbot\CONTROL;..\mbot\show;..\mbot\usart;..\Mbot_HARDWARE\ADC;..\Mbot_HARDWARE\DMP;..\Mbot_HARDWARE\ENCODER;..\Mbot_HARDWARE\EXTI;..\Mbot_HARDWARE\IIC;..\Mbot_HARDWARE\KEY;..\Mbot_HARDWARE\LED;..\Mbot_HARDWARE\MPU6050;..\Mbot_HARDWARE\USART3;..\Mbot_HARDWARE\MOTOR;..\mbot\PID</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -552,6 +552,21 @@
               <FileType>1</FileType>
               <FilePath>..\Mbot_HARDWARE\KEY\key.c</FilePath>
             </File>
+            <File>
+              <FileName>inv_mpu.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Mbot_HARDWARE\DMP\inv_mpu.c</FilePath>
+            </File>
+            <File>
+              <FileName>inv_mpu_dmp_motion_driver.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Mbot_HARDWARE\DMP\inv_mpu_dmp_motion_driver.c</FilePath>
+            </File>
+            <File>
+              <FileName>MPU6050.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Mbot_HARDWARE\MPU6050\MPU6050.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -561,21 +576,6 @@
               <FileName>control.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\mbot\CONTROL\control.c</FilePath>
-            </File>
-            <File>
-              <FileName>inv_mpu.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\mbot\DMP\inv_mpu.c</FilePath>
-            </File>
-            <File>
-              <FileName>inv_mpu_dmp_motion_driver.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\mbot\DMP\inv_mpu_dmp_motion_driver.c</FilePath>
-            </File>
-            <File>
-              <FileName>MPU6050.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\mbot\MPU6050\MPU6050.c</FilePath>
             </File>
             <File>
               <FileName>show.c</FileName>

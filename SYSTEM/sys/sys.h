@@ -1,10 +1,7 @@
 #ifndef __SYS_H
 #define __SYS_H	  
 #include <stm32f10x.h>   
-  /**************************************************************************
-作者：平衡小车之家
-我的淘宝小店：http://shop114407458.taobao.com/
-**************************************************************************/
+
 //0,不支持ucos
 //1,支持ucos
 #define SYSTEM_SUPPORT_UCOS		0		//定义系统文件夹是否支持UCOS
@@ -85,15 +82,13 @@
 #define JTAG_SWD_DISABLE   0X02
 #define SWD_ENABLE         0X01
 #define JTAG_SWD_ENABLE    0X00	
-extern u8 Way_Angle;                                          //获取角度的算法，1：四元数  2：卡尔曼  3：互补滤波
-extern int Encoder_Left,Encoder_Right;                        //左右编码器的脉冲计数
-extern int Moto1,Moto2;                                       //电机PWM变量 应是motor的 向moto致敬	
+
+extern int motorLeft,motorRight;                                       //电机PWM变量 应是motor的 向moto致敬	
 extern u8 Flag_Qian,Flag_Hou,Flag_Left,Flag_Right,Flag_sudu,Flag_useApp; //蓝牙遥控相关的变量
 extern u8 Flag_Stop,Flag_Show;                                //停止标志位和 显示标志位 默认停止 显示打开
 extern int Voltage,Voltage_Zheng,Voltage_Xiao;                //电池电压采样相关的变量
-extern float Gyro_Turn;                                       //转向陀螺仪
-extern int Temperature;
-extern u8 delay_value,delay_flag;
+extern float yaw;                                       //转向陀螺仪
+extern u8 delayValue,delayFlag;
 /////////////////////////////////////////////////////////////////  
 void Stm32_Clock_Init(u8 PLL);  //时钟初始化  
 void Sys_Soft_Reset(void);      //系统软复位

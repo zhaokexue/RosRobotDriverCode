@@ -3,7 +3,6 @@
 #include "mbotLinuxUsart.h"
 #include "pid.h"	
 
-u8 Way_Angle     =1;    //获取角度的算法，1：四元数
 u8 Flag_Qian     =0;
 u8 Flag_Hou      =0;
 u8 Flag_Left     =0;
@@ -13,20 +12,18 @@ u8 Flag_useApp   =0;    //蓝牙遥控相关的变量
 u8 Flag_Stop     =1;    //停止标志位和默认停止
 u8 Flag_Show     =0;    //显示标志位  显示打开
 
-int Encoder_Left =0;
-int Encoder_Right=0;    //左右编码器的脉冲计数
-int Moto1        =0;
-int Moto2        =0;    //电机PWM变量	
+int motorLeft   =0;
+int motorRight  =0;    //电机PWM变量	
 
-int Voltage      =0;    //电池电压采样相关的变量
-float Gyro_Turn  =0;    //转向陀螺仪
+int Voltage     =0;    //电池电压采样相关的变量
+float yaw  =0;         //转向陀螺仪
 
-u8 delay_value   =0;
-u8 delay_flag    =0;    //延时和调参等变量 
+u8 delayValue   =0;
+u8 delayFlag    =0;    //延时和调参等变量 
 
 int main(void)
 { 
-	delay_init();	    	        //=====延时函数初始化	
+	delay_init();	    	            //=====延时函数初始化	
 	uart_init(115200);	            //=====串口初始化为  树莓派
 	GPIO_PinRemapConfig(GPIO_Remap_SWJ_Disable,ENABLE);
 	GPIO_PinRemapConfig(GPIO_Remap_SWJ_JTAGDisable,ENABLE);//禁用JTAG 启用 SWD
@@ -47,12 +44,12 @@ int main(void)
 	while(1)
 	{
 		//蓝牙调试时用，不调试注释
-		//APP_Show();
+		//pcShow();
 		//给树莓派发送速度，角度,这里速度已经乘以1000
-		usartSendSpeed((float)leftSpeedNow,(float)rightSpeedNow,(float)(int)Gyro_Turn);
-		delay_flag=1;	
-		delay_value=0;
-		while(delay_flag);	        //通过MPU6050的INT中断实现的15ms精准延时	
+		usartSendSpeed((float)leftSpeedNow,(float)rightSpeedNow,(float)(int)yaw);
+		delayFlag=1;	
+		delayValue=0;
+		while(delayFlag);	        //通过MPU6050的INT中断实现的15ms精准延时	
 	} 
 }
 

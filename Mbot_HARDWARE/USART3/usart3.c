@@ -61,7 +61,7 @@ void USART3_IRQHandler(void)
 		if(uart_receive==0x4A)//速度切换
 		{
 			if(Flag_sudu==2) //低速挡（默认值）
-				Flag_sudu=1; //高速档
+				Flag_sudu=1;   //高速档
 			else
 				Flag_sudu=2;  
 		}	

@@ -1,4 +1,4 @@
-..\obj\inv_mpu_dmp_motion_driver.o: ..\mbot\DMP\inv_mpu_dmp_motion_driver.c
+..\obj\inv_mpu_dmp_motion_driver.o: ..\Mbot_HARDWARE\DMP\inv_mpu_dmp_motion_driver.c
 ..\obj\inv_mpu_dmp_motion_driver.o: ..\SYSTEM\sys\sys.h
 ..\obj\inv_mpu_dmp_motion_driver.o: ..\USER\stm32f10x.h
 ..\obj\inv_mpu_dmp_motion_driver.o: ..\Mbot_COER\core_cm3.h
@@ -40,13 +40,13 @@
 ..\obj\inv_mpu_dmp_motion_driver.o: ..\Mbot_HARDWARE\MOTOR\motor.h
 ..\obj\inv_mpu_dmp_motion_driver.o: ..\Mbot_HARDWARE\ENCODER\encoder.h
 ..\obj\inv_mpu_dmp_motion_driver.o: ..\Mbot_HARDWARE\IIC\ioi2c.h
-..\obj\inv_mpu_dmp_motion_driver.o: ..\mbot\MPU6050\mpu6050.h
+..\obj\inv_mpu_dmp_motion_driver.o: ..\Mbot_HARDWARE\MPU6050\mpu6050.h
 ..\obj\inv_mpu_dmp_motion_driver.o: ..\mbot\show\show.h
 ..\obj\inv_mpu_dmp_motion_driver.o: ..\Mbot_HARDWARE\EXTI\exti.h
-..\obj\inv_mpu_dmp_motion_driver.o: ..\mbot\DMP\inv_mpu.h
-..\obj\inv_mpu_dmp_motion_driver.o: ..\mbot\DMP\inv_mpu_dmp_motion_driver.h
-..\obj\inv_mpu_dmp_motion_driver.o: ..\mbot\DMP\dmpKey.h
-..\obj\inv_mpu_dmp_motion_driver.o: ..\mbot\DMP\dmpmap.h
+..\obj\inv_mpu_dmp_motion_driver.o: ..\Mbot_HARDWARE\DMP\inv_mpu.h
+..\obj\inv_mpu_dmp_motion_driver.o: ..\Mbot_HARDWARE\DMP\inv_mpu_dmp_motion_driver.h
+..\obj\inv_mpu_dmp_motion_driver.o: ..\Mbot_HARDWARE\DMP\dmpKey.h
+..\obj\inv_mpu_dmp_motion_driver.o: ..\Mbot_HARDWARE\DMP\dmpmap.h
 ..\obj\inv_mpu_dmp_motion_driver.o: C:\Software\MDK5\ARM\ARMCC\Bin\..\include\string.h
 ..\obj\inv_mpu_dmp_motion_driver.o: C:\Software\MDK5\ARM\ARMCC\Bin\..\include\stdlib.h
 ..\obj\inv_mpu_dmp_motion_driver.o: C:\Software\MDK5\ARM\ARMCC\Bin\..\include\math.h

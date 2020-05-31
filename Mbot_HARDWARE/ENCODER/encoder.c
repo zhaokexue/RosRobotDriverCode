@@ -1,9 +1,6 @@
 #include "encoder.h"
 #include "stm32f10x_gpio.h"
 
-vu32 SP1 = 0;
-vu32 SP2 = 0;
-
 int leftWheelEncoder       = 0;
 int rightWheelEncoder      = 0;
 
@@ -12,7 +9,11 @@ int rightWheelEncoderNow   = 0;
 int leftWheelEncoderLast   = 0;
 int rightWheelEncoderLast  = 0;
 
-
+/**************************************************************************
+函数功能：把TIM2初始化为编码器接口模式
+入口参数：无
+返回  值：无
+**************************************************************************/
 void Encoder_Init_TIM2(void)
 {
 	TIM_TimeBaseInitTypeDef TIM_TimeBaseStructure;  
@@ -81,6 +82,11 @@ void Encoder_Init_TIM4(void)
 	TIM_Cmd(TIM4, ENABLE); 
 }
 
+/**************************************************************************
+函数功能：读取编码器脉冲差值
+入口参数：TIM_TypeDef * TIMx
+返回  值：无
+**************************************************************************/
 s16 getTIMx_DetaCnt(TIM_TypeDef * TIMx)
 {
 	s16 cnt;
@@ -89,55 +95,4 @@ s16 getTIMx_DetaCnt(TIM_TypeDef * TIMx)
 	return cnt;
 }
 
-/*=================================================================
-*   函数名：TIM_Encoder_Irq
-*   功能：  拟中断服务函数
-*   输入：  TIMx
-*   输出：  增量编码器值
-===================================================================*/
-
-vu32 TIM_Left_Wheel_Irq()
-{
-	if(TIM_GetITStatus(TIM4, TIM_IT_CC1) != RESET)//溢出中断
-	{    		
-		TIM_ClearITPendingBit(TIM4, TIM_IT_CC1);	
-		SP1 += getTIMx_DetaCnt(TIM4);		
-	}			
-	return SP1;
-}
-
-vu32 TIM_Right_Wheel_Irq()
-{
-	if(TIM_GetITStatus(TIM2, TIM_IT_CC1) != RESET)//溢出中断
-	{    
-		TIM_ClearITPendingBit(TIM2, TIM_IT_CC1);
-		SP2 += getTIMx_DetaCnt(TIM2);		
-	}				   
-	return SP2;
-}
-
-/**************************************************************************
-函数功能：TIM4中断服务函数
-入口参数：无
-返回  值：无
-**************************************************************************/
-void TIM4_IRQHandler(void)
-{ 	
-	if(TIM4->SR&0X0001)//溢出中断
-	{    				   				     	    	
-	}				   
-	TIM4->SR&=~(1<<0);//清除中断标志位 	    
-}
-/**************************************************************************
-函数功能：TIM2中断服务函数
-入口参数：无
-返回  值：无
-**************************************************************************/
-void TIM2_IRQHandler(void)
-{ 		    	
-	if(TIM2->SR&0X0001)//溢出中断
-	{    				   				     	    	
-	}				   
-	TIM2->SR&=~(1<<0);//清除中断标志位 	    
-}
 

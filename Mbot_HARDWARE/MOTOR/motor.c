@@ -1,5 +1,10 @@
 #include "motor.h"
 
+/**************************************************************************
+函数功能：motor相关引脚初始化
+入口参数：无
+返回  值：无
+**************************************************************************/
 void MBOT_Motor_Init(void)
 {
 	GPIO_InitTypeDef GPIO_InitStructure;
@@ -9,6 +14,12 @@ void MBOT_Motor_Init(void)
 	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;     //50M
 	GPIO_Init(GPIOB, &GPIO_InitStructure);				  //根据设定参数初始化GPIOB 
 }
+
+/**************************************************************************
+函数功能：控制电机的两路PWM初始化
+入口参数：无
+返回  值：无
+**************************************************************************/
 void MBOT_PWM_Init(u16 arr,u16 psc)
 {		 		
 	GPIO_InitTypeDef GPIO_InitStructure;
