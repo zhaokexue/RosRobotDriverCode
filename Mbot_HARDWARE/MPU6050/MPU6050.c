@@ -1,6 +1,6 @@
 #include "MPU6050.h"
-#include "IOI2C.h"
-#include "usart.h"
+
+#define GYRO_Z_OFFSET 9   //零偏
 
 #define PRINT_ACCEL     (0x01)
 #define PRINT_GYRO      (0x02)
@@ -256,7 +256,7 @@ void DMP_Init(void)
 { 
 	u8 temp[1]={0};
 	i2cRead(0x68,0x75,1,temp);
-	Flag_Show=1;
+	
 	printf("mpu_set_sensor complete ......\r\n");
 	if(temp[0]!=0x68)NVIC_SystemReset();
 	if(!mpu_init())
@@ -281,7 +281,6 @@ void DMP_Init(void)
 		if(!mpu_set_dmp_state(1))
 			printf("mpu_set_dmp_state complete ......\r\n");
 	}
-	Flag_Show=0;
 }
 /**************************************************************************
 函数功能：读取MPU6050内置DMP的姿态信息
@@ -301,8 +300,8 @@ void Read_DMP(void)
 		 q1=quat[1] / q30;
 		 q2=quat[2] / q30;
 		 q3=quat[3] / q30;
-		 Pitch = asin(-2 * q1 * q3 + 2 * q0* q2)* 57.3; 	
-		 Roll= atan2(2 * q2 * q3 + 2 * q0 * q1, -2 * q1 * q1 - 2 * q2* q2 + 1)* 57.3; // roll
+//		 Pitch = asin(-2 * q1 * q3 + 2 * q0* q2)* 57.3; 	
+//		 Roll= atan2(2 * q2 * q3 + 2 * q0 * q1, -2 * q1 * q1 - 2 * q2* q2 + 1)* 57.3; // roll
 		 Yaw = atan2(2 * (q1*q2 + q0*q3),q0*q0+q1*q1-q2*q2-q3*q3)*57.3;//yaw
 	}
 }
@@ -318,5 +317,18 @@ int Read_Temperature(void)
 	if(Temp>32768) Temp-=65536;
 	Temp=(36.53+Temp/340)*10;
 	return (int)Temp;
+}
+
+/**************************************************************************
+函数功能：获取角度 三种算法经过我们的调校，都非常理想 
+入口参数：无
+返回  值：无
+**************************************************************************/
+void getAngle(float *yaw)
+{
+	Read_DMP();                 //===读取加速度、角速度、倾角
+	if(Yaw<-GYRO_Z_OFFSET)
+		Yaw=Yaw+360;
+	*yaw=GYRO_Z_OFFSET+Yaw;     //===更新转向角度
 }
 //------------------End of File----------------------------

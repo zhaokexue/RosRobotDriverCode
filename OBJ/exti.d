@@ -34,8 +34,7 @@
 ..\obj\exti.o: ..\SYSTEM\sys\sys.h
 ..\obj\exti.o: ..\Mbot_HARDWARE\LED\led.h
 ..\obj\exti.o: ..\Mbot_HARDWARE\KEY\key.h
-..\obj\exti.o: ..\SYSTEM\usart\usart.h
-..\obj\exti.o: C:\Software\MDK5\ARM\ARMCC\Bin\..\include\stdio.h
+..\obj\exti.o: ..\Mbot_HARDWARE\USART1\usart1.h
 ..\obj\exti.o: ..\Mbot_HARDWARE\USART3\usart3.h
 ..\obj\exti.o: ..\Mbot_HARDWARE\ADC\adc.h
 ..\obj\exti.o: ..\Mbot_HARDWARE\MOTOR\motor.h
@@ -49,5 +48,6 @@
 ..\obj\exti.o: ..\Mbot_HARDWARE\DMP\dmpKey.h
 ..\obj\exti.o: ..\Mbot_HARDWARE\DMP\dmpmap.h
 ..\obj\exti.o: C:\Software\MDK5\ARM\ARMCC\Bin\..\include\string.h
+..\obj\exti.o: C:\Software\MDK5\ARM\ARMCC\Bin\..\include\stdio.h
 ..\obj\exti.o: C:\Software\MDK5\ARM\ARMCC\Bin\..\include\stdlib.h
 ..\obj\exti.o: C:\Software\MDK5\ARM\ARMCC\Bin\..\include\math.h

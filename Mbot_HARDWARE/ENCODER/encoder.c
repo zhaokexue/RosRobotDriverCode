@@ -1,13 +1,4 @@
 #include "encoder.h"
-#include "stm32f10x_gpio.h"
-
-int leftWheelEncoder       = 0;
-int rightWheelEncoder      = 0;
-
-int leftWheelEncoderNow    = 0;
-int rightWheelEncoderNow   = 0;
-int leftWheelEncoderLast   = 0;
-int rightWheelEncoderLast  = 0;
 
 /**************************************************************************
 函数功能：把TIM2初始化为编码器接口模式

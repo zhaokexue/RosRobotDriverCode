@@ -9,7 +9,8 @@
  *      @details    All functions are preceded by the dmp_ prefix to
  *                  differentiate among MPL and general driver function calls.
  */
-#include "sys.h"
+
+#include "inv_mpu_dmp_motion_driver.h"
 
 
 #define  MOTION_DRIVER_TARGET_MSP430

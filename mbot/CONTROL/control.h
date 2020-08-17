@@ -1,16 +1,31 @@
 #ifndef __CONTROL_H_
 #define __CONTROL_H_
-#include "sys.h"
+
+#include "stm32f10x.h"
+#include "pid.h"
 
 #define PI 3.14159265
 
-int EXTI15_10_IRQHandler(void);
-void Set_Pwm(int moto1,int moto2);
-void Xianfu_Pwm(void);
-u8 Turn_Off(int voltage);
-void key(void);
-void getAngle(void);
-int myabs(int a);
+extern int leftWheelEncoder;
+extern int rightWheelEncoder;
+       
+extern int leftWheelEncoderNow;
+extern int rightWheelEncoderNow;
+extern int leftWheelEncoderLast;
+extern int rightWheelEncoderLast;
+
+extern int Voltage; //电池电压采样相关的变量
+
+extern float yaw;         //转向陀螺仪
+
+extern u8 Flag_Qian;
+extern u8 Flag_Hou;
+extern u8 Flag_Left;
+extern u8 Flag_Right;
+extern u8 Flag_sudu;
+extern u8 Flag_useApp;    //蓝牙遥控相关的变量
+
+
 void App_main(void);
 
 #endif

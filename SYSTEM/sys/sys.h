@@ -4,7 +4,7 @@
 
 //0,不支持ucos
 //1,支持ucos
-#define SYSTEM_SUPPORT_UCOS		0		//定义系统文件夹是否支持UCOS
+#define SYSTEM_SUPPORT_UCOS		0		             //定义系统文件夹是否支持UCOS
 																	    
 	 
 //位带操作,实现51类似的GPIO控制功能
@@ -13,6 +13,7 @@
 #define BITBAND(addr, bitnum) ((addr & 0xF0000000)+0x2000000+((addr &0xFFFFF)<<5)+(bitnum<<2)) 
 #define MEM_ADDR(addr)  *((volatile unsigned long  *)(addr)) 
 #define BIT_ADDR(addr, bitnum)   MEM_ADDR(BITBAND(addr, bitnum)) 
+
 //IO口地址映射
 #define GPIOA_ODR_Addr    (GPIOA_BASE+12) //0x4001080C 
 #define GPIOB_ODR_Addr    (GPIOB_BASE+12) //0x40010C0C 
@@ -65,30 +66,11 @@
 #define FTIR   1  //下降沿触发
 #define RTIR   2  //上升沿触发
 
-#include "delay.h"
-#include "led.h"
-#include "key.h"
-#include "usart.h"
-#include "usart3.h"
-#include "adc.h"
-#include "motor.h"
-#include "encoder.h"
-#include "ioi2c.h"
-#include "mpu6050.h"
-#include "show.h"					
-#include "exti.h"
-
 //JTAG模式设置定义
 #define JTAG_SWD_DISABLE   0X02
 #define SWD_ENABLE         0X01
 #define JTAG_SWD_ENABLE    0X00	
 
-extern int motorLeft,motorRight;                                       //电机PWM变量 应是motor的 向moto致敬	
-extern u8 Flag_Qian,Flag_Hou,Flag_Left,Flag_Right,Flag_sudu,Flag_useApp; //蓝牙遥控相关的变量
-extern u8 Flag_Stop,Flag_Show;                                //停止标志位和 显示标志位 默认停止 显示打开
-extern int Voltage,Voltage_Zheng,Voltage_Xiao;                //电池电压采样相关的变量
-extern float yaw;                                       //转向陀螺仪
-extern u8 delayValue,delayFlag;
 /////////////////////////////////////////////////////////////////  
 void Stm32_Clock_Init(u8 PLL);  //时钟初始化  
 void Sys_Soft_Reset(void);      //系统软复位
@@ -104,16 +86,7 @@ void WFI_SET(void);		//执行WFI指令
 void INTX_DISABLE(void);//关闭所有中断
 void INTX_ENABLE(void);	//开启所有中断
 void MSR_MSP(u32 addr);	//设置堆栈地址
-#include "inv_mpu.h"
-#include "inv_mpu_dmp_motion_driver.h"
-#include "dmpKey.h"
-#include "dmpmap.h"
-#include <string.h> 
-#include <stdio.h>
-#include <stdint.h>
-#include <stdlib.h>
-#include <string.h>
-#include <math.h>
+
 #endif
 
 

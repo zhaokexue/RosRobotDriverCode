@@ -1,20 +1,12 @@
 #include "pid.h"
+#include "motor.h"
 
 u8	     g_Pid_En  		       = 1;          //pid开关
-
 s16      g_Pid_Left_Adjust     = 0;		     //左轮速度调节量
 s16      g_Pid_Right_Adjust    = 0;		     //右轮速度调节量
 
-PID_Uint    pid_Task_Letf;
-PID_Uint    pid_Task_Right;
-
-
-//乘以1000之后的速度实时值
-int      leftSpeedNow  = 0; 
-int      rightSpeedNow = 0; 
-//乘以1000之后的速度设定值
-int      leftSpeedSet  = 0; 
-int      rightSpeedSet = 0; 
+struct pid_uint pid_Task_Letf;
+struct pid_uint pid_Task_Right;
 
 /****************************************************************************
 *函数名称：PID_Init(void)
@@ -46,7 +38,7 @@ void PID_Init(void)
  入口参数：PID单元的参数结构体 地址
  返 回 值：无
 ************************************************************************************************/
-void reset_Uk(PID_Uint *p)
+void reset_Uk(struct pid_uint *p)
 {
 	p->U_kk=0;
 	p->ekk=0;
@@ -59,16 +51,16 @@ void reset_Uk(PID_Uint *p)
  入口参数：期望值，实测值，PID单元结构体
  返 回 值：PID控制量
 ************************************************************************************************/
-s32 PID_common(int set,int jiance,PID_Uint *p)
+s32 PID_common(int set,int jiance,struct pid_uint *p)
 {
 	int ek=0,U_k=0;
 
-	ek=jiance - set;                                        //差值
+	ek=jiance - set;                                                               
 	
 	U_k=p->U_kk + p->Kp*(ek - p->ekk) + p->Ki*ek + p->Kd*(ek - 2*p->ekk + p->ekkk);
 	
 	p->U_kk=U_k;
-  p->ekkk=p->ekk;
+    p->ekkk=p->ekk;
 	p->ekk=ek;
 	
 	if(U_k>(p->Ur))		                                    
@@ -86,12 +78,12 @@ s32 PID_common(int set,int jiance,PID_Uint *p)
 ** 出口参数 ：无						     
 ** 说明     ：
 ***********************************************************************************/
-void Pid_Which(PID_Uint *px, PID_Uint *py)
+void Pid_Which(int leftSet,int rightSet,int leftNow,int rightNow, struct pid_uint *px, struct pid_uint *py)
 {
 	/**********************左轮速度pid*************************/
 	if(g_Pid_En == 1)
 	{									
-		g_Pid_Left_Adjust = -PID_common(leftSpeedSet, leftSpeedNow, px);		
+		g_Pid_Left_Adjust = -PID_common(leftSet, leftNow, px);		
 	}	
 	else
 	{
@@ -102,7 +94,7 @@ void Pid_Which(PID_Uint *px, PID_Uint *py)
 	/***********************右轮速度pid*************************/
 	if(g_Pid_En == 1)
 	{
-		g_Pid_Right_Adjust = -PID_common(rightSpeedSet, rightSpeedNow, py);		
+		g_Pid_Right_Adjust = -PID_common(rightSet, rightNow, py);		
 	}	
 	else
 	{
@@ -125,10 +117,9 @@ void Pid_Ctrl(void)
 {
 	if(g_Pid_En == 1)
 	{
-		Pid_Which(&pid_Task_Letf, &pid_Task_Right); 
+		Pid_Which(leftSpeedSet,rightSpeedSet,leftSpeedNow,rightSpeedNow,&pid_Task_Letf, &pid_Task_Right); 
 		motorLeft += g_Pid_Left_Adjust;
 		motorRight += g_Pid_Right_Adjust;
 	}
 }
-
 

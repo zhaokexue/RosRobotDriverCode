@@ -1,38 +1,11 @@
-#include "sys.h"
-#include "usart.h"	  
+#include "usart1.h"	  
 
-#include "mbotLinuxUsart.h"
-#include "pid.h"	
-
-#if SYSTEM_SUPPORT_OS
-#include "includes.h"					//ucos 使用	  
-#endif
-//////////////////////////////////////////////////////////////////
-//加入以下代码,支持printf函数,而不需要选择use MicroLIB	  
-#if 1
-#pragma import(__use_no_semihosting)             
-//标准库需要的支持函数                 
-struct __FILE 
-{ 
-	int handle; 
-
-}; 
-
-FILE __stdout;       
-//定义_sys_exit()以避免使用半主机模式    
-_sys_exit(int x) 
-{ 
-	x = x; 
-} 
-//重定义fputc函数 
-int fputc(int ch, FILE *f)
-{      
-	while((USART3->SR&0X40)==0);//Flag_Show=0  使用串口3   
-	USART3->DR = (u8) ch;      
-	return ch;
-}
-#endif 
-void uart_init(u32 bound)
+/**************************************************************************
+函数功能：串口1初始化
+入口参数：波特率
+返回  值：无
+**************************************************************************/
+void usart1_init(uint32_t bound)
 {
 	//GPIO端口设置
 	GPIO_InitTypeDef GPIO_InitStructure;
@@ -70,12 +43,5 @@ void uart_init(u32 bound)
 	//USART_ITConfig(USART1, USART_IT_RXNE, DISABLE);//开启串口接受中断
 	USART_Cmd(USART1, ENABLE);                    //使能串口1 
 }
-//中断服务函数
-void USART1_IRQHandler()
-{
-	if(USART_GetITStatus(USART1, USART_IT_RXNE) != RESET)
- 	 {
-		 USART_ClearITPendingBit(USART1,USART_IT_RXNE);//首先清除中断标志位
-		 receiveTo103(&leftSpeedSet,&rightSpeedSet);
-	 }
-}
+
+

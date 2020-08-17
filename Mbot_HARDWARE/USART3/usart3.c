@@ -1,13 +1,36 @@
 #include "usart3.h"
 
-u8 Usart3_Receive;
+//////////////////////////////////////////////////////////////////
+//加入以下代码,支持printf函数,而不需要选择use MicroLIB	  
+#if 1
+#pragma import(__use_no_semihosting)             
+//标准库需要的支持函数                 
+struct __FILE 
+{ 
+	int handle; 
+}; 
+
+FILE __stdout;       
+//定义_sys_exit()以避免使用半主机模式    
+_sys_exit(int x) 
+{ 
+	x = x; 
+} 
+//重定义fputc函数 
+int fputc(int ch, FILE *f)
+{      
+	while((USART3->SR&0X40)==0);//Flag_Show=0  使用串口3   
+	USART3->DR = (u8) ch;      
+	return ch;
+}
+#endif 
 
 /**************************************************************************
 函数功能：串口3初始化
-入口参数： bound:波特率
+入口参数：波特率
 返回  值：无
 **************************************************************************/
-void uart3_init(u32 bound)
+void usart3_init(uint32_t bound)
 {  	 
 	//GPIO端口设置
 	GPIO_InitTypeDef GPIO_InitStructure;
@@ -45,52 +68,6 @@ void uart3_init(u32 bound)
 	USART_Cmd(USART3, ENABLE);                                 //使能串口3 
 }
 
-/**************************************************************************
-函数功能：串口3接收中断
-入口参数：无
-返回  值：无
-**************************************************************************/
-void USART3_IRQHandler(void)
-{	
-	if(USART_GetITStatus(USART3, USART_IT_RXNE) != RESET) //接收到数据
-	{	
-		//USART_ClearITPendingBit(USART3,USART_IT_RXNE);  //清除中断标志位	串口读取DR寄存器以后会硬件清除中断标志位	
-		static	int uart_receive=0;                       //蓝牙接收相关变量
-		uart_receive=USART_ReceiveData(USART3); 
-
-		if(uart_receive==0x4A)//速度切换
-		{
-			if(Flag_sudu==2) //低速挡（默认值）
-				Flag_sudu=1;   //高速档
-			else
-				Flag_sudu=2;  
-		}	
-		
-		if(uart_receive==0x4B)
-		{
-			if(Flag_useApp==0)//默认不使用APP
-				Flag_useApp=1;
-			else
-				Flag_useApp=0;
-		}
-		
-		if(uart_receive>10)  //默认使用
-		{			
-			if(uart_receive==0x5A)	
-				Flag_Qian=0,Flag_Hou=0,Flag_Left=0,Flag_Right=0;//////////////刹车
-			else if(uart_receive==0x41||uart_receive==0x42||uart_receive==0x48)	
-				Flag_Qian=1,Flag_Hou=0,Flag_Left=0,Flag_Right=0;//////////////前
-			else if(uart_receive==0x44||uart_receive==0x45||uart_receive==0x46)	
-				Flag_Qian=0,Flag_Hou=1,Flag_Left=0,Flag_Right=0;//////////////后
-			else if(uart_receive==0x43)	
-				Flag_Qian=0,Flag_Hou=0,Flag_Left=0,Flag_Right=1;//////////////右
-			else if(uart_receive==0x47)
-				Flag_Qian=0,Flag_Hou=0,Flag_Left=1,Flag_Right=0;//////////////左
-			else 
-				Flag_Qian=0,Flag_Hou=0,Flag_Left=0,Flag_Right=0;//////////////刹车
-		}
-	}  											 
-} 
 
 
 
