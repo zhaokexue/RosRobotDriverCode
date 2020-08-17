@@ -44,7 +44,7 @@ int main(void)
 	while(1)
 	{
 		//蓝牙调试时用，不调试注释
-		//pcShow();
+		pcShow();
 		//给树莓派发送速度，角度,这里速度已经乘以1000
 		usartSendSpeed((float)leftSpeedNow,(float)rightSpeedNow,(float)(int)yaw);
 		delayFlag=1;	
