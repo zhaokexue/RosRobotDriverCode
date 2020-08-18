@@ -15,7 +15,6 @@
 "..\obj\delay.o"
 "..\obj\sys.o"
 "..\obj\led.o"
-"..\obj\key.o"
 "..\obj\myexti.o"
 "..\obj\adc.o"
 "..\obj\encoder.o"

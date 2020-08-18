@@ -1,9 +1,10 @@
 #ifndef __KEY_H
 #define __KEY_H	 
 
-#include "stm32f10x.h"
-
-#define KEY GPIO_ReadInputDataBit(GPIOA,GPIO_Pin_5)
+//#include "stm32f10x.h"
+#include "sys.h"
+//#define KEY GPIO_ReadInputDataBit(GPIOA,GPIO_Pin_5)
+#define KEY PAin(5)
 
 void KEY_Init(void);          //°´¼ü³õÊ¼»¯
 

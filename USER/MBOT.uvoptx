@@ -164,7 +164,7 @@
         <SetRegEntry>
           <Number>0</Number>
           <Key>ST-LINKIII-KEIL_SWO</Key>
-          <Name>-U56FF6B066575485547161167 -I0 -O8398 -S0 -C0 -A0 -N00("ARM CoreSight SW-DP") -D00(1BA01477) -L00(0) -TO19 -TC72000000 -TP21 -TDS8023 -TDT0 -TDC1F -TIEFFFFFFFF -TIP8 -FO15 -FD20000000 -FC1000 -FN1 -FF0STM32F10x_128.FLM -FS08000000 -FL020000 -FP0($$Device:STM32F103C8$Flash\STM32F10x_128.FLM)</Name>
+          <Name>-U303030303030303030303031 -I0 -O8398 -S0 -C0 -A0 -N00("ARM CoreSight SW-DP") -D00(1BA01477) -L00(0) -TO19 -TC72000000 -TP21 -TDS8023 -TDT0 -TDC1F -TIEFFFFFFFF -TIP8 -FO15 -FD20000000 -FC1000 -FN1 -FF0STM32F10x_128.FLM -FS08000000 -FL020000 -FP0($$Device:STM32F103C8$Flash\STM32F10x_128.FLM)</Name>
         </SetRegEntry>
         <SetRegEntry>
           <Number>0</Number>
@@ -176,66 +176,34 @@
         <Bp>
           <Number>0</Number>
           <Type>0</Type>
-          <LineNumber>60</LineNumber>
+          <LineNumber>52</LineNumber>
           <EnabledFlag>1</EnabledFlag>
-          <Address>134218734</Address>
+          <Address>134244404</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
           <SizeOfObject>0</SizeOfObject>
           <BreakByAccess>0</BreakByAccess>
           <BreakIfRCount>1</BreakIfRCount>
-          <Filename>F:\4.slam涓庤矾寰勮鍒掑涔?10.slam灏忚溅婧愮爜\RosRobotDriverCode\USER\MBOT.c</Filename>
+          <Filename>F:\4.slam涓庤矾寰勮鍒掑涔?10.slam灏忚溅婧愮爜\RosRobotDriverCode\mbot\CONTROL\control.c</Filename>
           <ExecCommand></ExecCommand>
-          <Expression>\\MBOT\MBOT.c\60</Expression>
+          <Expression>\\MBOT\../mbot/CONTROL/control.c\52</Expression>
         </Bp>
         <Bp>
           <Number>1</Number>
           <Type>0</Type>
-          <LineNumber>62</LineNumber>
+          <LineNumber>74</LineNumber>
           <EnabledFlag>1</EnabledFlag>
-          <Address>134218766</Address>
+          <Address>134244592</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
           <SizeOfObject>0</SizeOfObject>
           <BreakByAccess>0</BreakByAccess>
           <BreakIfRCount>1</BreakIfRCount>
-          <Filename>F:\4.slam涓庤矾寰勮鍒掑涔?10.slam灏忚溅婧愮爜\RosRobotDriverCode\USER\MBOT.c</Filename>
+          <Filename>F:\4.slam涓庤矾寰勮鍒掑涔?10.slam灏忚溅婧愮爜\RosRobotDriverCode\mbot\CONTROL\control.c</Filename>
           <ExecCommand></ExecCommand>
-          <Expression>\\MBOT\MBOT.c\62</Expression>
-        </Bp>
-        <Bp>
-          <Number>2</Number>
-          <Type>0</Type>
-          <LineNumber>63</LineNumber>
-          <EnabledFlag>1</EnabledFlag>
-          <Address>134218770</Address>
-          <ByteObject>0</ByteObject>
-          <HtxType>0</HtxType>
-          <ManyObjects>0</ManyObjects>
-          <SizeOfObject>0</SizeOfObject>
-          <BreakByAccess>0</BreakByAccess>
-          <BreakIfRCount>1</BreakIfRCount>
-          <Filename>F:\4.slam涓庤矾寰勮鍒掑涔?10.slam灏忚溅婧愮爜\RosRobotDriverCode\USER\MBOT.c</Filename>
-          <ExecCommand></ExecCommand>
-          <Expression>\\MBOT\MBOT.c\63</Expression>
-        </Bp>
-        <Bp>
-          <Number>3</Number>
-          <Type>0</Type>
-          <LineNumber>72</LineNumber>
-          <EnabledFlag>1</EnabledFlag>
-          <Address>134218786</Address>
-          <ByteObject>0</ByteObject>
-          <HtxType>0</HtxType>
-          <ManyObjects>0</ManyObjects>
-          <SizeOfObject>0</SizeOfObject>
-          <BreakByAccess>0</BreakByAccess>
-          <BreakIfRCount>1</BreakIfRCount>
-          <Filename>F:\4.slam涓庤矾寰勮鍒掑涔?10.slam灏忚溅婧愮爜\RosRobotDriverCode\USER\MBOT.c</Filename>
-          <ExecCommand></ExecCommand>
-          <Expression>\\MBOT\MBOT.c\72</Expression>
+          <Expression>\\MBOT\../mbot/CONTROL/control.c\74</Expression>
         </Bp>
       </Breakpoint>
       <WatchWindow1>
@@ -549,19 +517,6 @@
       <Focus>0</Focus>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\Mbot_HARDWARE\KEY\key.c</PathWithFileName>
-      <FilenameWithoutPath>key.c</FilenameWithoutPath>
-      <RteFlg>0</RteFlg>
-      <bShared>0</bShared>
-    </File>
-    <File>
-      <GroupNumber>5</GroupNumber>
-      <FileNumber>18</FileNumber>
-      <FileType>1</FileType>
-      <tvExp>0</tvExp>
-      <Focus>0</Focus>
-      <tvExpOptDlg>0</tvExpOptDlg>
-      <bDave2>0</bDave2>
       <PathWithFileName>..\Mbot_HARDWARE\EXTI\myexti.c</PathWithFileName>
       <FilenameWithoutPath>myexti.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
@@ -569,7 +524,7 @@
     </File>
     <File>
       <GroupNumber>5</GroupNumber>
-      <FileNumber>19</FileNumber>
+      <FileNumber>18</FileNumber>
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
@@ -582,7 +537,7 @@
     </File>
     <File>
       <GroupNumber>5</GroupNumber>
-      <FileNumber>20</FileNumber>
+      <FileNumber>19</FileNumber>
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
@@ -595,7 +550,7 @@
     </File>
     <File>
       <GroupNumber>5</GroupNumber>
-      <FileNumber>21</FileNumber>
+      <FileNumber>20</FileNumber>
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
@@ -608,7 +563,7 @@
     </File>
     <File>
       <GroupNumber>5</GroupNumber>
-      <FileNumber>22</FileNumber>
+      <FileNumber>21</FileNumber>
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
@@ -621,7 +576,7 @@
     </File>
     <File>
       <GroupNumber>5</GroupNumber>
-      <FileNumber>23</FileNumber>
+      <FileNumber>22</FileNumber>
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
@@ -634,7 +589,7 @@
     </File>
     <File>
       <GroupNumber>5</GroupNumber>
-      <FileNumber>24</FileNumber>
+      <FileNumber>23</FileNumber>
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
@@ -647,7 +602,7 @@
     </File>
     <File>
       <GroupNumber>5</GroupNumber>
-      <FileNumber>25</FileNumber>
+      <FileNumber>24</FileNumber>
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
@@ -660,7 +615,7 @@
     </File>
     <File>
       <GroupNumber>5</GroupNumber>
-      <FileNumber>26</FileNumber>
+      <FileNumber>25</FileNumber>
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
@@ -673,7 +628,7 @@
     </File>
     <File>
       <GroupNumber>5</GroupNumber>
-      <FileNumber>27</FileNumber>
+      <FileNumber>26</FileNumber>
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
@@ -694,7 +649,7 @@
     <RteFlg>0</RteFlg>
     <File>
       <GroupNumber>6</GroupNumber>
-      <FileNumber>28</FileNumber>
+      <FileNumber>27</FileNumber>
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
@@ -707,7 +662,7 @@
     </File>
     <File>
       <GroupNumber>6</GroupNumber>
-      <FileNumber>29</FileNumber>
+      <FileNumber>28</FileNumber>
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
@@ -720,7 +675,7 @@
     </File>
     <File>
       <GroupNumber>6</GroupNumber>
-      <FileNumber>30</FileNumber>
+      <FileNumber>29</FileNumber>
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
@@ -733,7 +688,7 @@
     </File>
     <File>
       <GroupNumber>6</GroupNumber>
-      <FileNumber>31</FileNumber>
+      <FileNumber>30</FileNumber>
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
@@ -746,7 +701,7 @@
     </File>
     <File>
       <GroupNumber>6</GroupNumber>
-      <FileNumber>32</FileNumber>
+      <FileNumber>31</FileNumber>
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>

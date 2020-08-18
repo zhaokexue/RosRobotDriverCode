@@ -31,7 +31,6 @@
 ..\obj\mbot.o: ..\STM32F10x_FWLib\inc\misc.h
 ..\obj\mbot.o: ..\SYSTEM\delay\delay.h
 ..\obj\mbot.o: ..\Mbot_HARDWARE\LED\led.h
-..\obj\mbot.o: ..\Mbot_HARDWARE\KEY\key.h
 ..\obj\mbot.o: ..\Mbot_HARDWARE\EXTI\myexti.h
 ..\obj\mbot.o: ..\Mbot_HARDWARE\ADC\adc.h
 ..\obj\mbot.o: ..\Mbot_HARDWARE\MOTOR_PWM\pwm.h

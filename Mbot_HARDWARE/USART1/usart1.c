@@ -40,7 +40,7 @@ void usart1_init(uint32_t bound)
 
 	USART_Init(USART1, &USART_InitStructure); //初始化串口1
 	USART_ITConfig(USART1, USART_IT_RXNE, ENABLE);//开启串口接受中断
-	//USART_ITConfig(USART1, USART_IT_RXNE, DISABLE);//开启串口接受中断
+	//USART_ITConfig(USART1, USART_IT_RXNE, DISABLE);//关闭串口接受中断
 	USART_Cmd(USART1, ENABLE);                    //使能串口1 
 }
 

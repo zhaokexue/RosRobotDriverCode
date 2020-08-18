@@ -1,6 +1,6 @@
 #include "MPU6050.h"
 
-#define GYRO_Z_OFFSET 9   //ÁãÆ«
+#define GYRO_Z_OFFSET 18   //ÁãÆ«
 
 #define PRINT_ACCEL     (0x01)
 #define PRINT_GYRO      (0x02)

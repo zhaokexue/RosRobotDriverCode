@@ -112,9 +112,10 @@ u8 Long_Press(void)
 void key(void)
 {	
 	u8 tmp=0;
-	tmp=click_N_Double(50); //单击控制小车的启停
+	tmp=click(); //单击控制小车的启停
 	if(tmp==1)
 	{
+		GPIO_ResetBits(GPIOA,GPIO_Pin_4);
 //		leftSpeedSet  = 500; 
 //		rightSpeedSet = 500; 
 	}

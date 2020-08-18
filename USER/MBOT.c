@@ -3,7 +3,6 @@
 //====================自己加入的头文件===============================
 #include "delay.h"
 #include "led.h"
-#include "key.h"
 #include "myexti.h"
 #include "adc.h"
 #include "pwm.h"
@@ -34,7 +33,6 @@ int main(void)
 	delay_init();	    	        //=====延时函数初始化
 	
 	LED_Init();                     //=====LED初始化    程序灯	
-	KEY_Init();                     //=====按键初始化   测试用
 	
 	usart1_init(115200);	        //=====串口1初始化  树莓派
 	usart3_init(9600);              //=====串口3初始化  蓝牙
@@ -71,7 +69,7 @@ int main(void)
 				sendCount=0;
 		}
 		//获取角度		
-		//getAngle(&yaw);                                                     
+		getAngle(&yaw);                                                     
 	} 
 }
 

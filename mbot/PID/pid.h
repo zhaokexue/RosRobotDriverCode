@@ -12,6 +12,9 @@ struct pid_uint
 	s32 Kp;				//比例
 	s32 Ki;				//积分
 	s32 Kd;				//微分
+	
+	u8  En;             //开关
+	s16 Adjust;         //调节量	
 };
 
 /****************************外接函数***************************/
@@ -20,10 +23,5 @@ void  PID_Init(void);
 void  reset_Uk(struct pid_uint *p);
 s32   PID_common(int set,int jiance,struct pid_uint *p);
 void  Pid_Ctrl(void);
-
-/*****************************外接变量***************************/
-extern u8	  g_Pid_En;
-extern s16    g_Pid_Left_Adjust;		 //左轮速度调节量
-extern s16    g_Pid_Right_Adjust;		 //右轮速度调节量
 
 #endif //__PID_H__

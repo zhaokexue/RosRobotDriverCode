@@ -1,14 +1,24 @@
 #include "motor.h"
 
-int motorLeft   =0;
-int motorRight  =0;         //左右轮电机PWM变量
+//左右轮电机PWM变量
+int motorLeft     = 0;
+int motorRight    = 0;         
 
 //乘以1000之后的速度实时值
 int leftSpeedNow  = 0; 
 int rightSpeedNow = 0; 
+
 //乘以1000之后的速度设定值
 int leftSpeedSet  = 0; 
 int rightSpeedSet = 0; 
+
+ //蓝牙遥控相关的变量
+u8  Flag_Qian     = 0;
+u8  Flag_Hou      = 0;
+u8  Flag_Left     = 0;
+u8  Flag_Right    = 0;
+u8  Flag_sudu     = 2;
+u8  Flag_useApp   = 0;      
 
 /**************************************************************************
 函数功能：赋值给PWM寄存器
@@ -32,17 +42,21 @@ void Set_Pwm(int motorLeft,int motorRight)
 **************************************************************************/
 u8 Turn_Off(int voltage)
 {
-	u8 temp=0;
+	u8 temp =0;
 	if(voltage<1110)//电池电压低于11.1V关闭电机
 	{	                                             
-		temp=1;                                        
+		temp=1;
+		motorLeft=0;
+		motorRight=0;		
 		AIN1=0;                                            
 		AIN2=0;
 		BIN1=0;
 		BIN2=0;
 	}
 	else
+	{
 		temp=0;
+	}
 	return temp;			
 }
 

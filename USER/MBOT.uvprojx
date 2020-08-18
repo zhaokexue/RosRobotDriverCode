@@ -513,11 +513,6 @@
               <FilePath>..\Mbot_HARDWARE\LED\LED.C</FilePath>
             </File>
             <File>
-              <FileName>key.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\Mbot_HARDWARE\KEY\key.c</FilePath>
-            </File>
-            <File>
               <FileName>myexti.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\Mbot_HARDWARE\EXTI\myexti.c</FilePath>

@@ -22,14 +22,13 @@ void LED_Init(void)
 **************************************************************************/
 void Led_Flash(uint16_t time)
 {
-	static int temp;
-	if(0==time)
+	static int temp = 0;
+	if(++temp == time)
 	{
-		GPIO_SetBits(GPIOA,GPIO_Pin_4);	 
-	}		  
-	else if(++temp==time)
-	{
-		GPIO_ResetBits(GPIOA,GPIO_Pin_4);
+		if(GPIO_ReadInputDataBit(GPIOA,GPIO_Pin_4)==0)
+			GPIO_SetBits(GPIOA,GPIO_Pin_4);
+		else
+			GPIO_ResetBits(GPIOA,GPIO_Pin_4);
 		temp=0;
 	}
 }
