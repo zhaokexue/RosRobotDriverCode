@@ -1,7 +1,8 @@
 #ifndef __IOI2C_H
 #define __IOI2C_H
-#include "stm32f10x.h"
 
+#include "stm32f10x.h"
+#include "delay.h"
 
 //IO口操作宏定义
 #define BITBAND(addr, bitnum) ((addr & 0xF0000000)+0x2000000+((addr &0xFFFFF)<<5)+(bitnum<<2)) 

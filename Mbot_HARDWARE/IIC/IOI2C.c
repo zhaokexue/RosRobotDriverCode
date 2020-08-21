@@ -1,6 +1,4 @@
 #include "ioi2c.h"
-#include "sys.h"
-#include "delay.h"
 
 /**************************实现函数********************************************
 *函数原型:		void IIC_Init(void)

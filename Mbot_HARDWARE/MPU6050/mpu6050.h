@@ -1,7 +1,14 @@
 #ifndef __MPU6050_H
 #define __MPU6050_H
 
-#include "sys.h"
+#include "IOI2C.h"
+
+#include "inv_mpu.h"
+#include "inv_mpu_dmp_motion_driver.h"
+
+#include <stdio.h>
+#include <math.h>
+
 #define devAddr  0xD0
 
 #define MPU6050_ADDRESS_AD0_LOW     0x68 // address pin low (GND), default for InvenSense evaluation board
@@ -357,16 +364,18 @@ extern	short gyro[3], accel[3];
 extern int16_t Gx_offset,Gy_offset,Gz_offset;
 extern float Acc1G_Values; 
 extern float Pitch,Roll,Yaw; 
+
 //供外部调用的API
-void MPU6050_initialize(void); //初始化
+void MPU6050_initialize(void);        //初始化
 uint8_t MPU6050_testConnection(void); //检测MPU6050是否存在
 //读取ADC值
 void MPU6050_getMotion6(int16_t* ax, int16_t* ay, int16_t* az, int16_t* gx, int16_t* gy, int16_t* gz);
-void MPU6050_getlastMotion6(int16_t* ax, int16_t* ay, 
-		int16_t* az, int16_t* gx, int16_t* gy, int16_t* gz);
+void MPU6050_getlastMotion6(int16_t* ax, int16_t* ay, int16_t* az, int16_t* gx, int16_t* gy, int16_t* gz);
 uint8_t MPU6050_getDeviceID(void); //读取MPU6050的ID
 void MPU6050_InitGyro_Offset(void);//初始化陀螺仪偏置
 void DMP_Init(void);
 void Read_DMP(void);
 int Read_Temperature(void);
+void getAngle(float *yaw,float *yaw_acc_error);
+
 #endif

@@ -20,9 +20,15 @@ void LED_Init(void)
 入口参数：闪烁频率 
 返回  值：无
 **************************************************************************/
-void Led_Flash(u16 time)
+void Led_Flash(uint16_t time)
 {
-	  static int temp;
-	  if(0==time) LED=0;
-	  else		if(++temp==time)	LED=~LED,temp=0;
+	static int temp = 0;
+	if(++temp == time)
+	{
+		if(GPIO_ReadInputDataBit(GPIOA,GPIO_Pin_4)==0)
+			GPIO_SetBits(GPIOA,GPIO_Pin_4);
+		else
+			GPIO_ResetBits(GPIOA,GPIO_Pin_4);
+		temp=0;
+	}
 }

@@ -369,7 +369,7 @@
               <MiscControls></MiscControls>
               <Define>STM32F10X_ HD,USE_STDPERIPH_DRIVER</Define>
               <Undefine></Undefine>
-              <IncludePath>..\USER;..\STM32F10x_FWLib\inc;..\SYSTEM;..\SYSTEM\delay;..\SYSTEM\sys;..\SYSTEM\usart;..\Mbot_COER;..\Mbot_HARDWARE;..\mbot\CONTROL;..\mbot\show;..\mbot\usart;..\Mbot_HARDWARE\ADC;..\Mbot_HARDWARE\DMP;..\Mbot_HARDWARE\ENCODER;..\Mbot_HARDWARE\EXTI;..\Mbot_HARDWARE\IIC;..\Mbot_HARDWARE\KEY;..\Mbot_HARDWARE\LED;..\Mbot_HARDWARE\MPU6050;..\Mbot_HARDWARE\USART3;..\Mbot_HARDWARE\MOTOR;..\mbot\PID</IncludePath>
+              <IncludePath>..\USER;..\STM32F10x_FWLib\inc;..\SYSTEM;..\SYSTEM\delay;..\SYSTEM\sys;..\Mbot_COER;..\Mbot_HARDWARE;..\mbot\CONTROL;..\mbot\show;..\mbot\usart;..\Mbot_HARDWARE\ADC;..\Mbot_HARDWARE\DMP;..\Mbot_HARDWARE\ENCODER;..\Mbot_HARDWARE\EXTI;..\Mbot_HARDWARE\IIC;..\Mbot_HARDWARE\KEY;..\Mbot_HARDWARE\LED;..\Mbot_HARDWARE\MPU6050;..\Mbot_HARDWARE\USART3;..\mbot\PID;..\Mbot_HARDWARE\USART1;..\mbot\motor;..\Mbot_HARDWARE\MOTOR_PWM</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -502,11 +502,6 @@
               <FileType>1</FileType>
               <FilePath>..\SYSTEM\sys\sys.c</FilePath>
             </File>
-            <File>
-              <FileName>usart.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\SYSTEM\usart\usart.c</FilePath>
-            </File>
           </Files>
         </Group>
         <Group>
@@ -518,14 +513,14 @@
               <FilePath>..\Mbot_HARDWARE\LED\LED.C</FilePath>
             </File>
             <File>
+              <FileName>myexti.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Mbot_HARDWARE\EXTI\myexti.c</FilePath>
+            </File>
+            <File>
               <FileName>adc.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\Mbot_HARDWARE\ADC\adc.c</FilePath>
-            </File>
-            <File>
-              <FileName>motor.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\Mbot_HARDWARE\MOTOR\motor.c</FilePath>
             </File>
             <File>
               <FileName>encoder.c</FileName>
@@ -533,9 +528,14 @@
               <FilePath>..\Mbot_HARDWARE\ENCODER\encoder.c</FilePath>
             </File>
             <File>
-              <FileName>IOI2C.c</FileName>
+              <FileName>pwm.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\Mbot_HARDWARE\IIC\IOI2C.c</FilePath>
+              <FilePath>..\Mbot_HARDWARE\MOTOR_PWM\pwm.c</FilePath>
+            </File>
+            <File>
+              <FileName>usart1.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Mbot_HARDWARE\USART1\usart1.c</FilePath>
             </File>
             <File>
               <FileName>usart3.c</FileName>
@@ -543,14 +543,14 @@
               <FilePath>..\Mbot_HARDWARE\USART3\usart3.c</FilePath>
             </File>
             <File>
-              <FileName>exti.c</FileName>
+              <FileName>IOI2C.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\Mbot_HARDWARE\EXTI\exti.c</FilePath>
+              <FilePath>..\Mbot_HARDWARE\IIC\IOI2C.c</FilePath>
             </File>
             <File>
-              <FileName>key.c</FileName>
+              <FileName>MPU6050.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\Mbot_HARDWARE\KEY\key.c</FilePath>
+              <FilePath>..\Mbot_HARDWARE\MPU6050\MPU6050.c</FilePath>
             </File>
             <File>
               <FileName>inv_mpu.c</FileName>
@@ -561,11 +561,6 @@
               <FileName>inv_mpu_dmp_motion_driver.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\Mbot_HARDWARE\DMP\inv_mpu_dmp_motion_driver.c</FilePath>
-            </File>
-            <File>
-              <FileName>MPU6050.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\Mbot_HARDWARE\MPU6050\MPU6050.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -591,6 +586,11 @@
               <FileName>pid.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\mbot\PID\pid.c</FilePath>
+            </File>
+            <File>
+              <FileName>motor.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\mbot\motor\motor.c</FilePath>
             </File>
           </Files>
         </Group>
