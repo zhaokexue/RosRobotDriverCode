@@ -3,9 +3,7 @@
 经过之前几篇文章，我相信大家一定对下面这些模块都已经有些了解了。今天，我们将编写ROS小车STM32单片机底层控制的最后一篇文章。我们将一起按照之前的软件流程，将所有的代码整合到一个工程中去。
 
 **在公众号：小白学移动机器人，发送：ROS小车底层**，即可获得源码工程文件。
-
-![image-20200821000807464](https://imgconvert.csdnimg.cn/aHR0cHM6Ly9pLmxvbGkubmV0LzIwMjAvMDgvMjEvemRPRGs1QWpXVnFKbjc5LnBuZw?x-oss-process=image/format,png#pic_center)
-
+![image-20200821000807464](https://i.loli.net/2020/08/21/YLB2AIbDi71cnMQ.png)
 相信大家对配置代码都很清楚了，这里直接描述软件执行流程，以及部分代码展示
 
 **注意：该工程文件中的STM32与ROS通信的程序和前面写的文章提供的程序，有一点出入，之前是为了方便理解。大家调用的时候注意即可。**
@@ -176,13 +174,20 @@ ROS小车的底层控制代码就到这里了，之后还会做优化，可能�
 下面陆续会有ROS安装、ROS小车模型文件编写、ROS小车启动文件编写、建图算法安装与测试、导航算法安装与测试。敬请期待。
 ### 系列文章
 [搭建ROS小车真的难吗？](https://blog.csdn.net/zhao_ke_xue/article/details/107922037)
+
 [ROS小车软件结构以及控制流程](https://blog.csdn.net/zhao_ke_xue/article/details/107963681)
+
 [STM32电机PWM控制](https://blog.csdn.net/zhao_ke_xue/article/details/108111850)
+
 [STM32电机测速（正交\霍尔编码器）](https://blog.csdn.net/zhao_ke_xue/article/details/108112420)
+
 [STM32电机PID速度控制](https://blog.csdn.net/zhao_ke_xue/article/details/108112694)
+
 [STM32 MPU6050 数据获取、数据处理](https://blog.csdn.net/zhao_ke_xue/article/details/108136979)
+
 [STM32与ROS通信教程](https://blog.csdn.net/zhao_ke_xue/article/details/105493907)
-![在这里插入图片描述](https://img-blog.csdnimg.cn/20200821004807250.gif#pic_center)
+
+![在这里插入图片描述](https://i.loli.net/2020/08/21/nB3IOvC827QiuaX.gif)
 
 
 
