@@ -29,6 +29,3 @@
 ..\obj\pid.o: ..\STM32F10x_FWLib\inc\stm32f10x_usart.h
 ..\obj\pid.o: ..\STM32F10x_FWLib\inc\stm32f10x_wwdg.h
 ..\obj\pid.o: ..\STM32F10x_FWLib\inc\misc.h
-..\obj\pid.o: ..\mbot\motor\motor.h
-..\obj\pid.o: ..\SYSTEM\sys\sys.h
-..\obj\pid.o: ..\mbot\CONTROL\control.h

@@ -30,3 +30,4 @@
 ..\obj\mbotlinuxusart.o: ..\STM32F10x_FWLib\inc\stm32f10x_wwdg.h
 ..\obj\mbotlinuxusart.o: ..\STM32F10x_FWLib\inc\misc.h
 ..\obj\mbotlinuxusart.o: C:\Software\MDK5\ARM\ARMCC\Bin\..\include\stdio.h
+..\obj\mbotlinuxusart.o: C:\Software\MDK5\ARM\ARMCC\Bin\..\include\stdlib.h

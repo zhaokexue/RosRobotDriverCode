@@ -1,5 +1,6 @@
 #include "mbotLinuxUsart.h"
 #include <stdio.h>
+#include <stdlib.h>
 
 unsigned char sendCtrlFlag =0;
 unsigned char receCtrlFlag =0;
@@ -128,6 +129,17 @@ int usartReceiveOneData(USART_TypeDef* USARTx,int *p_leftSpeedSet,int *p_rightSp
 					*p_leftSpeedSet  = (int)leftVelSet.d;
 					*p_rightSpeedSet = (int)rightVelSet.d;
 					
+					//ËÙ¶È·ùÖµ500mm/s
+					if(abs(*p_leftSpeedSet)>500)
+					{
+						if(*p_leftSpeedSet>0)  *p_leftSpeedSet= 500;
+						else 				   *p_leftSpeedSet=-500;
+					}
+					if(abs(*p_rightSpeedSet)>500)
+					{
+						if(*p_rightSpeedSet>0) *p_rightSpeedSet= 500;
+						else 				   *p_rightSpeedSet=-500;
+					}
 					//ctrlFlag
 					*p_crtlFlag = receiveBuff[7];                //buf[7]
 					

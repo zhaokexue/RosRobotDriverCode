@@ -1,7 +1,5 @@
 #include "MPU6050.h"
 
-#define GYRO_Z_OFFSET 18   //零偏
-
 #define PRINT_ACCEL     (0x01)
 #define PRINT_GYRO      (0x02)
 #define PRINT_QUAT      (0x04)
@@ -59,33 +57,32 @@ static void run_self_test(void)
     long gyro[3], accel[3];
 
     result = mpu_run_self_test(gyro, accel);
-    if (result == 0x7) {
+    if (result == 0x03) {                   //返回0x03为MPU6050
         /* Test passed. We can trust the gyro data here, so let's push it down
          * to the DMP.
          */
         float sens;
         unsigned short accel_sens;
-        mpu_get_gyro_sens(&sens);
+        mpu_get_gyro_sens(&sens);			//读取当前陀螺仪的状态
         gyro[0] = (long)(gyro[0] * sens);
         gyro[1] = (long)(gyro[1] * sens);
         gyro[2] = (long)(gyro[2] * sens);
-        dmp_set_gyro_bias(gyro);
-        mpu_get_accel_sens(&accel_sens);
+        dmp_set_gyro_bias(gyro);			//根据读取的状态进行校准
+		
+        mpu_get_accel_sens(&accel_sens);	//读取当前加速度计的状态
         accel[0] *= accel_sens;
         accel[1] *= accel_sens;
         accel[2] *= accel_sens;
-        dmp_set_accel_bias(accel);
+        dmp_set_accel_bias(accel);			//根据读取的状态进行校准
 		printf("setting bias succesfully ......\r\n");
     }
 }
 
-
-
 uint8_t buffer[14];
 
 int16_t  MPU6050_FIFO[6][11];
-int16_t Gx_offset=0,Gy_offset=0,Gz_offset=0;
 
+int16_t Gx_offset=0,Gy_offset=0,Gz_offset=0;
 
 /**************************实现函数********************************************
 *函数原型:		void  MPU6050_newValues(int16_t ax,int16_t ay,int16_t az,int16_t gx,int16_t gy,int16_t gz)
@@ -239,7 +236,7 @@ void MPU6050_setI2CBypassEnabled(uint8_t enabled) {
 *******************************************************************************/
 void MPU6050_initialize(void) {
 	MPU6050_setClockSource(MPU6050_CLOCK_PLL_YGYRO); //设置时钟
-	MPU6050_setFullScaleGyroRange(MPU6050_GYRO_FS_2000);//陀螺仪最大量程 +-1000度每秒
+	MPU6050_setFullScaleGyroRange(MPU6050_GYRO_FS_2000);//陀螺仪最大量程 +-2000度每秒
 	MPU6050_setFullScaleAccelRange(MPU6050_ACCEL_FS_2);	//加速度度最大量程 +-2G
 	MPU6050_setSleepEnabled(0); //进入工作状态
 	MPU6050_setI2CMasterModeEnabled(0);	 //不让MPU6050 控制AUXI2C
@@ -320,15 +317,21 @@ int Read_Temperature(void)
 }
 
 /**************************************************************************
-函数功能：获取角度 三种算法经过我们的调校，都非常理想 
+函数功能：获取角度 0-359
 入口参数：无
 返回  值：无
 **************************************************************************/
-void getAngle(float *yaw)
+void getAngle(float *yaw,float *yaw_acc_error)
 {
-	Read_DMP();                 //===读取加速度、角速度、倾角
-	if(Yaw<-GYRO_Z_OFFSET)
-		Yaw=Yaw+360;
-	*yaw=GYRO_Z_OFFSET+Yaw;     //===更新转向角度
+	Read_DMP();                   //===读取Yaw(-180 - 179)
+	
+	if(Yaw < 0)
+		Yaw = Yaw + 360;
+	*yaw = Yaw;                   //===转换yaw(   0 - 359)
+	
+	*yaw = *yaw - *yaw_acc_error; //===减去yaw随时间的向上漂移
+	
+	if(*yaw < 0)
+		*yaw = *yaw+360;
 }
 //------------------End of File----------------------------

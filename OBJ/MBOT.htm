@@ -3,11 +3,11 @@
 <title>Static Call Graph - [..\OBJ\MBOT.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image ..\OBJ\MBOT.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5050106: Last Updated: Tue Aug 18 10:29:04 2020
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5050106: Last Updated: Fri Aug 21 09:40:35 2020
 <BR><P>
 <H3>Maximum Stack Usage =        280 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
-__rt_entry_main &rArr; main &rArr; DMP_Init &rArr; run_self_test &rArr; mpu_run_self_test &rArr; accel_self_test &rArr; get_accel_prod_shift &rArr; i2cRead &rArr; IIC_Read_Byte &rArr; IIC_NAck
+__rt_entry_main &rArr; main &rArr; getAngle &rArr; Read_DMP &rArr; dmp_read_fifo &rArr; mpu_read_fifo_stream &rArr; mpu_reset_fifo &rArr; i2cWrite &rArr; IIC_Send_Byte
 <P>
 <H3>
 Functions with no stack information
@@ -208,7 +208,7 @@ Global Symbols
 
 <P><STRONG><a name="[48]"></a>__rt_entry_main</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __rtentry2.o(.ARM.Collect$$rtentry$$0000000D))
 <BR><BR>[Stack]<UL><LI>Max Depth = 280 + Unknown Stack Size
-<LI>Call Chain = __rt_entry_main &rArr; main &rArr; DMP_Init &rArr; run_self_test &rArr; mpu_run_self_test &rArr; accel_self_test &rArr; get_accel_prod_shift &rArr; i2cRead &rArr; IIC_Read_Byte &rArr; IIC_NAck
+<LI>Call Chain = __rt_entry_main &rArr; main &rArr; getAngle &rArr; Read_DMP &rArr; dmp_read_fifo &rArr; mpu_read_fifo_stream &rArr; mpu_reset_fifo &rArr; i2cWrite &rArr; IIC_Send_Byte
 </UL>
 <BR>[Calls]<UL><LI><a href="#[49]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 <LI><a href="#[4a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;exit
@@ -276,9 +276,9 @@ Global Symbols
 </UL>
 <P><STRONG><a name="[190]"></a>SystemCoreClockUpdate</STRONG> (Thumb, 142 bytes, Stack size 8 bytes, system_stm32f10x.o(.text), UNUSED)
 
-<P><STRONG><a name="[49]"></a>main</STRONG> (Thumb, 160 bytes, Stack size 8 bytes, mbot.o(.text))
+<P><STRONG><a name="[49]"></a>main</STRONG> (Thumb, 162 bytes, Stack size 8 bytes, mbot.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 280 + Unknown Stack Size
-<LI>Call Chain = main &rArr; DMP_Init &rArr; run_self_test &rArr; mpu_run_self_test &rArr; accel_self_test &rArr; get_accel_prod_shift &rArr; i2cRead &rArr; IIC_Read_Byte &rArr; IIC_NAck
+<LI>Call Chain = main &rArr; getAngle &rArr; Read_DMP &rArr; dmp_read_fifo &rArr; mpu_read_fifo_stream &rArr; mpu_reset_fifo &rArr; i2cWrite &rArr; IIC_Send_Byte
 </UL>
 <BR>[Calls]<UL><LI><a href="#[61]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;usartSendData
 <LI><a href="#[56]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;usart3_init
@@ -1705,10 +1705,11 @@ Global Symbols
 <LI><a href="#[c4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;I2C_ReadOneByte
 </UL>
 
-<P><STRONG><a name="[63]"></a>getAngle</STRONG> (Thumb, 48 bytes, Stack size 8 bytes, mpu6050.o(.text))
-<BR><BR>[Stack]<UL><LI>Max Depth = 264<LI>Call Chain = getAngle &rArr; Read_DMP &rArr; dmp_read_fifo &rArr; mpu_read_fifo_stream &rArr; mpu_reset_fifo &rArr; i2cWrite &rArr; IIC_Send_Byte
+<P><STRONG><a name="[63]"></a>getAngle</STRONG> (Thumb, 74 bytes, Stack size 16 bytes, mpu6050.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 272<LI>Call Chain = getAngle &rArr; Read_DMP &rArr; dmp_read_fifo &rArr; mpu_read_fifo_stream &rArr; mpu_reset_fifo &rArr; i2cWrite &rArr; IIC_Send_Byte
 </UL>
 <BR>[Calls]<UL><LI><a href="#[f2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_cfcmple
+<LI><a href="#[eb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fsub
 <LI><a href="#[ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fadd
 <LI><a href="#[e7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Read_DMP
 </UL>
@@ -2268,13 +2269,16 @@ Global Symbols
 
 <P><STRONG><a name="[235]"></a>dmp_register_android_orient_cb</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, inv_mpu_dmp_motion_driver.o(.text), UNUSED)
 
-<P><STRONG><a name="[36]"></a>EXTI15_10_IRQHandler</STRONG> (Thumb, 64 bytes, Stack size 8 bytes, control.o(.text))
-<BR><BR>[Stack]<UL><LI>Max Depth = 112<LI>Call Chain = EXTI15_10_IRQHandler &rArr; Get_battery_volt_average &rArr; Get_battery_volt &rArr; __aeabi_dmul
+<P><STRONG><a name="[36]"></a>EXTI15_10_IRQHandler</STRONG> (Thumb, 140 bytes, Stack size 24 bytes, control.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 128<LI>Call Chain = EXTI15_10_IRQHandler &rArr; Get_battery_volt_average &rArr; Get_battery_volt &rArr; __aeabi_dmul
 </UL>
 <BR>[Calls]<UL><LI><a href="#[ae]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Get_Motor_Speed
 <LI><a href="#[a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Get_battery_volt_average
 <LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Led_Flash
 <LI><a href="#[12a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EXTI_ClearITPendingBit
+<LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2d
+<LI><a href="#[f1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dadd
+<LI><a href="#[ee]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2f
 <LI><a href="#[12d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Turn_Off
 <LI><a href="#[12e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Set_Pwm
 <LI><a href="#[12c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Pid_Ctrl
@@ -2299,7 +2303,7 @@ Global Symbols
 <LI><a href="#[66]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;usartReceiveOneData
 </UL>
 
-<P><STRONG><a name="[66]"></a>usartReceiveOneData</STRONG> (Thumb, 426 bytes, Stack size 24 bytes, mbotlinuxusart.o(.text))
+<P><STRONG><a name="[66]"></a>usartReceiveOneData</STRONG> (Thumb, 498 bytes, Stack size 24 bytes, mbotlinuxusart.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 152 + Unknown Stack Size
 <LI>Call Chain = usartReceiveOneData &rArr; __2printf &rArr; _printf_char_file &rArr; _printf_char_common &rArr; __printf
 </UL>
@@ -2330,7 +2334,7 @@ Global Symbols
 <LI><a href="#[132]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Pid_Which
 </UL>
 
-<P><STRONG><a name="[5e]"></a>PID_Init</STRONG> (Thumb, 76 bytes, Stack size 4 bytes, pid.o(.text))
+<P><STRONG><a name="[5e]"></a>PID_Init</STRONG> (Thumb, 88 bytes, Stack size 4 bytes, pid.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 4<LI>Call Chain = PID_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[131]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;reset_Uk
@@ -2344,8 +2348,8 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[132]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Pid_Which
 </UL>
 
-<P><STRONG><a name="[132]"></a>Pid_Which</STRONG> (Thumb, 96 bytes, Stack size 28 bytes, pid.o(.text))
-<BR><BR>[Stack]<UL><LI>Max Depth = 48<LI>Call Chain = Pid_Which &rArr; PID_common
+<P><STRONG><a name="[132]"></a>Pid_Which</STRONG> (Thumb, 92 bytes, Stack size 12 bytes, pid.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = Pid_Which &rArr; PID_common
 </UL>
 <BR>[Calls]<UL><LI><a href="#[133]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PID_common
 <LI><a href="#[131]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;reset_Uk
@@ -2353,8 +2357,8 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[12c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Pid_Ctrl
 </UL>
 
-<P><STRONG><a name="[12c]"></a>Pid_Ctrl</STRONG> (Thumb, 64 bytes, Stack size 12 bytes, pid.o(.text))
-<BR><BR>[Stack]<UL><LI>Max Depth = 60<LI>Call Chain = Pid_Ctrl &rArr; Pid_Which &rArr; PID_common
+<P><STRONG><a name="[12c]"></a>Pid_Ctrl</STRONG> (Thumb, 40 bytes, Stack size 12 bytes, pid.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 44<LI>Call Chain = Pid_Ctrl &rArr; Pid_Which &rArr; PID_common
 </UL>
 <BR>[Calls]<UL><LI><a href="#[132]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Pid_Which
 </UL>
@@ -2590,7 +2594,8 @@ Global Symbols
 <P><STRONG><a name="[ee]"></a>__aeabi_d2f</STRONG> (Thumb, 0 bytes, Stack size 32 bytes, d2f.o(x$fpl$d2f))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = __aeabi_d2f
 </UL>
-<BR>[Called By]<UL><LI><a href="#[ef]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Read_Temperature
+<BR>[Called By]<UL><LI><a href="#[36]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EXTI15_10_IRQHandler
+<LI><a href="#[ef]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Read_Temperature
 <LI><a href="#[e7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Read_DMP
 </UL>
 
@@ -2605,6 +2610,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[143]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__kernel_poly
 <LI><a href="#[146]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__mathlib_dbl_infnan2
 <LI><a href="#[148]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;atan
+<LI><a href="#[36]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EXTI15_10_IRQHandler
 <LI><a href="#[ef]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Read_Temperature
 </UL>
 
@@ -2715,7 +2721,8 @@ Global Symbols
 <P><STRONG><a name="[ec]"></a>__aeabi_f2d</STRONG> (Thumb, 0 bytes, Stack size 16 bytes, f2d.o(x$fpl$f2d))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = __aeabi_f2d
 </UL>
-<BR>[Called By]<UL><LI><a href="#[ef]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Read_Temperature
+<BR>[Called By]<UL><LI><a href="#[36]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EXTI15_10_IRQHandler
+<LI><a href="#[ef]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Read_Temperature
 <LI><a href="#[e7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Read_DMP
 </UL>
 
@@ -2878,7 +2885,8 @@ Global Symbols
 <P><STRONG><a name="[eb]"></a>__aeabi_fsub</STRONG> (Thumb, 0 bytes, Stack size 16 bytes, faddsub_clz.o(x$fpl$fsub))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = __aeabi_fsub
 </UL>
-<BR>[Called By]<UL><LI><a href="#[101]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mpu_get_temperature
+<BR>[Called By]<UL><LI><a href="#[63]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getAngle
+<LI><a href="#[101]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mpu_get_temperature
 <LI><a href="#[10a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gyro_self_test
 <LI><a href="#[108]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;accel_self_test
 <LI><a href="#[ef]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Read_Temperature
